@@ -1,0 +1,2 @@
+total 4
+drwx------ 9 190110323 ldap_students 4096 Sep 30 11:45 xv6-labs-2020
