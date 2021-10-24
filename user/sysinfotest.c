@@ -125,7 +125,6 @@ void testfd(){
   struct sysinfo info;
   sinfo(&info);
   uint64 nfd = info.freefd;
-  
   int fd = open("cat",O_RDONLY);
 
   sinfo(&info);
