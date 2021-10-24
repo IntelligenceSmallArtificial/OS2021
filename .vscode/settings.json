@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "syscall.h": "c",
+        "sleeplock.h": "c",
+        "file.h": "c",
+        "defs.h": "c",
+        "cmath": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}

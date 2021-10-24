@@ -180,3 +180,6 @@ filewrite(struct file *f, uint64 addr, int n)
   return ret;
 }
 
+int fileType(struct file *f){
+  return f->type;
+}

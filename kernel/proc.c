@@ -267,6 +267,7 @@ fork(void)
     return -1;
   }
 
+  np->mask = p->mask;       //父子进程mask一致
   // Copy user memory from parent to child.
   if(uvmcopy(p->pagetable, np->pagetable, p->sz) < 0){
     freeproc(np);
@@ -692,4 +693,23 @@ procdump(void)
     printf("%d %s %s", p->pid, state, p->name);
     printf("\n");
   }
+}
+
+// tz: 获取状态为UNUSED的进程数
+uint64 getNproc(){
+  uint64 j = 0;
+  for(int i = 0;i < NPROC;i++){
+    if(proc[i].state == UNUSED) j++;
+  }
+  return j;
+}
+
+// tz: 获取当前进程可用的文件描述符
+uint64 getFreefd(){
+  struct proc *p = myproc();
+  uint64 j = NOFILE;
+  for(int i = 0;i < NOFILE;i++){
+    if(p -> ofile[i]&&fileType(p -> ofile[i])>0) j--;
+  }
+  return j;
 }
